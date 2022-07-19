@@ -18,9 +18,7 @@
     "forceConsistentCasingInFileNames": true,
     "types": [
       "vite/client",
-      "vitest",
-      "chroma-js",
-      "scroll-into-view"
+      "vitest"
     ],
     "jsx": "preserve",
     "paths": {

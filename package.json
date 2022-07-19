@@ -1,7 +1,7 @@
 {
   "name": "vue-virtual-tabs",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "source": "src/index.ts",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -11,9 +11,6 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js",
       "types": "./dist/index.d.ts"
-    },
-    "./*": {
-      "import": "./dist/*"
     }
   },
   "files": [
@@ -34,7 +31,6 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@types/scroll-into-view": "^1.16.0",
     "@vueuse/core": "^8.7.5",
     "chroma-js": "^2.4.2",
     "is-what": "^4.1.7",
@@ -48,6 +44,7 @@
     "@antfu/eslint-config": "^0.25.2",
     "@types/chroma-js": "^2.1.4",
     "@types/node": "^18.0.0",
+    "@types/scroll-into-view": "^1.16.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "@viteplay/plugin": "^0.0.27",
     "@viteplay/vue": "^0.0.26",

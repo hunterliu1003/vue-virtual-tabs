@@ -28,7 +28,6 @@ specifiers:
   vue-virtual-scroll-grid: ^1.7.1
 
 dependencies:
-  '@types/scroll-into-view': 1.16.0
   '@vueuse/core': 8.9.4_vue@3.2.37
   chroma-js: 2.4.2
   is-what: 4.1.7
@@ -42,6 +41,7 @@ devDependencies:
   '@antfu/eslint-config': 0.25.2_he2ccbldppg44uulnyq4rwocfa
   '@types/chroma-js': 2.1.4
   '@types/node': 18.0.6
+  '@types/scroll-into-view': 1.16.0
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.14+vue@3.2.37
   '@viteplay/plugin': 0.0.27
   '@viteplay/vue': 0.0.26_xxca4fmgsp7cw4caxfykg2fuya
@@ -713,7 +713,7 @@ packages:
 
   /@types/scroll-into-view/1.16.0:
     resolution: {integrity: sha512-WT0YBP7CLi3XH/gDbWdtBf4mQVyE7zQrpEZ2rNrxz9tVoIPJf97zGlfRqnkECj7P8rPkFxVlo1KbOOMetcchdA==}
-    dev: false
+    dev: true
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
