@@ -48,6 +48,7 @@ watch(tabIndex, (newValue, oldValue) => {
   scrollTo(newValue, oldValue)
 },
 )
+
 watch(
   () => props.swipeable,
   (val) => {
