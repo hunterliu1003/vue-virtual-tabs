@@ -1,7 +1,7 @@
 {
   "name": "vue-virtual-tabs",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "source": "src/index.ts",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -28,8 +28,7 @@
     "coverage": "vitest run --coverage",
     "lint": "eslint . --ext=.ts,.vue --fix",
     "clean": "pnpm exec -- rm -rf node_modules dist docs coverage .cache",
-    "typecheck": "vue-tsc --noEmit",
-    "postinstall": "pnpm build"
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@types/scroll-into-view": "^1.16.0",
