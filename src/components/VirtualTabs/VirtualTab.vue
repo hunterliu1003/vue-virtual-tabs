@@ -119,7 +119,7 @@ function getRectByIndex(index: number, selector: string): undefined | DOMRect {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .tab {
   --tab-background: red;
   flex: 1;
@@ -139,85 +139,68 @@ function getRectByIndex(index: number, selector: string): undefined | DOMRect {
   user-select: none;
   transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
   transition-property: background-color, color;
-
-  .tab-indicator {
-    opacity: 0;
-  }
-
-  &.tab--active .tab-indicator {
-    opacity: 1;
-  }
 }
-
+.tab .tab-indicator {
+  opacity: 0;
+}
+.tab.tab--active .tab-indicator {
+  opacity: 1;
+}
 .tab-content {
   position: relative;
   padding: 4px 0;
 }
-
 .tab-indicator {
   will-change: width, transform;
   z-index: 1;
 }
-
 .tab-label {
   position: relative;
   z-index: 2;
-  // Make sure .tab-label is on top of .tab-indicator in iOS app
   transform: translateZ(0);
 }
-
-.tab-underline {
-  .tab-indicator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--tab-background);
-  }
-
-  &.tab--active {
-    color: var(--tab-background);
-  }
+.tab-underline .tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--tab-background);
 }
-
-.tab-pills {
-  .tab-indicator {
-    position: absolute;
-    bottom: 0.4em;
-    right: -0.8em;
-    left: -0.8em;
-    height: 1.5em;
-    border-radius: 100px;
-    background: var(--tab-background);
-  }
-
-  &.tab--active {
-    color: white;
-  }
+.tab-underline.tab--active {
+  color: var(--tab-background);
 }
-
+.tab-pills .tab-indicator {
+  position: absolute;
+  bottom: 0.4em;
+  right: -0.8em;
+  left: -0.8em;
+  height: 1.5em;
+  border-radius: 100px;
+  background: var(--tab-background);
+}
+.tab-pills.tab--active {
+  color: white;
+}
 .tab-bookmarks {
   padding: 0;
-
-  .tab-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 36px;
-    padding: 0 16px;
-  }
-
-  .tab-indicator {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-top-left-radius: 32px;
-    border-top-right-radius: 32px;
-    background: white;
-  }
+}
+.tab-bookmarks .tab-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
+}
+.tab-bookmarks .tab-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  background: white;
 }
 </style>

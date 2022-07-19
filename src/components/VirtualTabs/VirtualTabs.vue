@@ -213,7 +213,7 @@ function timeout(ms = 0): Promise<void> {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .tabs {
   position: sticky;
   top: 0;
@@ -222,18 +222,14 @@ function timeout(ms = 0): Promise<void> {
   width: 100%;
   overflow: auto;
   z-index: 2;
-
   -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
-  }
-
   -webkit-overflow-scrolling: touch;
 }
-
+.tabs::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
 .grid {
   display: grid;
   place-items: start stretch;
@@ -241,16 +237,13 @@ function timeout(ms = 0): Promise<void> {
   grid-auto-flow: column;
   grid-template-rows: 1fr;
 }
-
 .tab-panels {
   flex: 1;
   overflow: auto;
 }
-
 :deep(.swiper) {
   height: 100%;
 }
-
 :deep(.swiper-slide) {
   overflow: auto;
 }
