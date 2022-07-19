@@ -21,6 +21,8 @@ export default defineConfig({
         'is-what',
         'scroll-into-view',
         'swiper',
+        'swiper/vue',
+        'swiper/css',
         'vue-virtual-scroll-grid',
       ],
       output: {
@@ -30,6 +32,8 @@ export default defineConfig({
           'is-what': 'IsWhat',
           'scroll-into-view': 'ScrollIntoView',
           'swiper': 'Swiper',
+          'swiper/vue': 'SwiperVue',
+          'swiper/css': 'SwiperCss',
           'vue-virtual-scroll-grid': 'VueVirtualScrollGrid',
         },
       },
