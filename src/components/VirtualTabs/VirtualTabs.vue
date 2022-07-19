@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { PropType } from 'vue'
 import { nextTick, ref, useSlots, watch } from 'vue'
 import { isNumber } from 'is-what'
 import { Virtual } from 'swiper'
@@ -11,22 +12,15 @@ import scrollIntoView from 'scroll-into-view'
 import type { TabInfo, TabType } from './VirtualTabs'
 import VirtualTab from './VirtualTab.vue'
 
-const props = withDefaults(
-  defineProps<{
-    modelValue: number
-    type?: TabType
-    tabs?: TabInfo[]
-    isVirtual?: boolean
-    swipeable?: boolean
-    hideTabLabels?: boolean
-    autoHeight?: boolean
-  }>(),
-  {
-    type: 'underline',
-    tabs: () => [],
-    swipeable: true,
-  },
-)
+const props = defineProps({
+  modelValue: { type: Number as PropType<number>, required: true },
+  type: { type: String as PropType<TabType>, default: 'underline' },
+  tabs: { type: Array as PropType<TabInfo[]>, default: () => [] },
+  isVirtual: { type: Boolean as PropType<boolean>, default: undefined },
+  swipeable: { type: Boolean as PropType<boolean>, default: true },
+  hideTabLabels: { type: Boolean as PropType<boolean>, default: undefined },
+  autoHeight: { type: Boolean as PropType<boolean>, default: undefined },
+})
 
 const emit = defineEmits<{
   (e: 'update:modelValue', val: number): void

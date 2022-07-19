@@ -1,7 +1,7 @@
 {
   "name": "vue-virtual-tabs",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "source": "src/index.ts",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -21,7 +21,7 @@
     "dev": "pnpm run dev:lib & pnpm run dev:docs & pnpm run test",
     "build": "pnpm run build:lib & pnpm run build:docs",
     "dev:lib": "vue-tsc --noEmit && vite build -w",
-    "build:lib": "vue-tsc --noEmit && vite build",
+    "build:lib": "vite build && vue-tsc -p tsconfig.build-dts.json --declaration --emitDeclarationOnly",
     "dev:docs": "vite --config vite.config.docs.ts --host",
     "build:docs": "vite build --config vite.config.docs.ts",
     "test": "vitest",

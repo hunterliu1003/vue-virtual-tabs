@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "**/*.test.ts",
+    "**/examples/*",
+    "scripts/*",
+    "vite.config.*",
+    "src/viteplay/*",
+    "src/index.ts"
+  ]
+}
