@@ -5,7 +5,6 @@
     "**/examples/*",
     "scripts/*",
     "vite.config.*",
-    "src/viteplay/*",
-    "src/index.ts"
+    "src/viteplay/*"
   ]
 }

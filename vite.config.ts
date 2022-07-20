@@ -7,7 +7,14 @@ import libInjectCss from './scripts/libInjectCss'
 const name = 'index'
 
 export default defineConfig({
-  plugins: [vue(), dts(), libInjectCss()],
+  plugins: [
+    vue(),
+    dts({
+      exclude: ['./src/index.ts', 'node_modules'],
+    }),
+    libInjectCss(),
+  ],
+  publicDir: false,
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
