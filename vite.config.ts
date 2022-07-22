@@ -1,7 +1,6 @@
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
 import libInjectCss from './scripts/libInjectCss'
 
 const name = 'index'
@@ -9,9 +8,6 @@ const name = 'index'
 export default defineConfig({
   plugins: [
     vue(),
-    dts({
-      exclude: ['./src/index.ts', 'node_modules'],
-    }),
     libInjectCss(),
   ],
   publicDir: false,

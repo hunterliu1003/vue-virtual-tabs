@@ -9,13 +9,18 @@ import 'swiper/css'
 import Grid from 'vue-virtual-scroll-grid'
 import { useVModel } from '@vueuse/core'
 import scrollIntoView from 'scroll-into-view'
-import type { TabInfo, TabType } from './VirtualTabs'
 import VirtualTab from './VirtualTab.vue'
 
 const props = defineProps({
   modelValue: { type: Number as PropType<number>, required: true },
-  type: { type: String as PropType<TabType>, default: 'underline' },
-  tabs: { type: Array as PropType<TabInfo[]>, default: () => [] },
+  type: { type: String as PropType<'underline' | 'pills' | 'bookmarks'>, default: 'underline' },
+  tabs: {
+    type: Array as PropType<{
+      label: string
+      value: string | number
+    }[]>,
+    default: () => [],
+  },
   isVirtual: { type: Boolean as PropType<boolean>, default: undefined },
   swipeable: { type: Boolean as PropType<boolean>, default: true },
   hideTabLabels: { type: Boolean as PropType<boolean>, default: undefined },
@@ -51,7 +56,10 @@ watch(
   },
 )
 
-function pageProvider(pageNumber: number, pageSize: number): Promise<TabInfo[]> {
+function pageProvider(pageNumber: number, pageSize: number): Promise<{
+  label: string
+  value: string | number
+}[]> {
   const tabs = props.tabs.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize)
   return Promise.resolve(tabs)
 }
@@ -209,6 +217,7 @@ function timeout(ms = 0): Promise<void> {
 
 <style scoped>
 .tabs {
+  --tabs-background: gray;
   position: sticky;
   top: 0;
   display: flex;
@@ -218,6 +227,7 @@ function timeout(ms = 0): Promise<void> {
   z-index: 2;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
+  background-color: var(--tabs-background);
 }
 .tabs::-webkit-scrollbar {
   width: 0;

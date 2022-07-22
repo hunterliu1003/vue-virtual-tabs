@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import { computed, nextTick, ref, watch } from 'vue'
-import type { TabType } from './VirtualTabs'
 
 const props = defineProps({
   currentIndex: {
@@ -13,7 +12,7 @@ const props = defineProps({
     default: false,
   },
   type: {
-    type: String as PropType<TabType>,
+    type: String as PropType<'underline' | 'pills' | 'bookmarks'>,
     default: 'underline',
   },
 })
@@ -127,7 +126,7 @@ function getRectByIndex(index: number, selector: string): undefined | DOMRect {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
+  width: 90px;
   height: inherit;
   min-height: 36px;
   padding: 0 16px;
@@ -148,7 +147,11 @@ function getRectByIndex(index: number, selector: string): undefined | DOMRect {
 }
 .tab-content {
   position: relative;
-  padding: 4px 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
 }
 .tab-indicator {
   will-change: width, transform;
@@ -159,9 +162,10 @@ function getRectByIndex(index: number, selector: string): undefined | DOMRect {
   z-index: 2;
   transform: translateZ(0);
 }
+
 .tab-underline .tab-indicator {
   position: absolute;
-  bottom: 0;
+  bottom: 4px;
   left: 0;
   right: 0;
   height: 2px;
@@ -170,29 +174,24 @@ function getRectByIndex(index: number, selector: string): undefined | DOMRect {
 .tab-underline.tab--active {
   color: var(--tab-background);
 }
+
 .tab-pills .tab-indicator {
   position: absolute;
-  bottom: 0.4em;
-  right: -0.8em;
-  left: -0.8em;
-  height: 1.5em;
+  top: 7px;
+  bottom: 7px;
+  right: 0;
+  left: 0;
   border-radius: 100px;
   background: var(--tab-background);
 }
 .tab-pills.tab--active {
   color: white;
 }
+
 .tab-bookmarks {
   padding: 0;
 }
-.tab-bookmarks .tab-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 36px;
-  padding: 0 16px;
-}
+
 .tab-bookmarks .tab-indicator {
   position: absolute;
   top: 0;
